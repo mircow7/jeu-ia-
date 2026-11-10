@@ -48,7 +48,7 @@ Pour publier sur GitHub Pages : dans le dépôt, **Settings**, **Pages**, **Depl
 | `IDEES_DEFIS.md` | huit extensions à réaliser avec Copilot |
 | `.github/copilot-instructions.md` | consignes lues par Copilot sur ce dépôt |
 
-Le JavaScript fait moins de 600 lignes au total. Il est découpé en fichiers courts, sans classe ni framework, avec des commentaires en français.
+Le JavaScript fait moins de 700 lignes au total. Il est découpé en fichiers courts, sans classe ni framework, avec des commentaires en français.
 
 ## Personnaliser
 
