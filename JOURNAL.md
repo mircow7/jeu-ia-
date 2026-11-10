@@ -21,7 +21,7 @@ Note : la complétion Copilot n'a pas été utilisée. Le travail a été fait a
 ```
 
 - Ce que l'outil a proposé : dans `jeu.js`, une variable `let cristaux = 0;` en haut du fichier, `cristaux += 1;` dans `toucherObjet` juste après `score += points;` (donc seulement pour les cristaux cyan et dorés, pas pour les bombes qui sortent avant avec `return`), `cristaux = 0;` dans `demarrerPartie`, et `finCristaux.textContent = cristaux;` dans `terminerPartie`. Dans `index.html`, une ligne `CRISTAUX` sur l'écran de fin, avec la même classe `fin-ligne` que la ligne RECORD (pas de CSS à ajouter).
-- Ce que j'ai accepté, modifié ou refusé, et pourquoi : À COMPLÉTER (relis le diff du commit « defi 1 » et dis ce que tu en penses).
+- Ce que j'ai accepté, modifié ou refusé, et pourquoi : accepté tel quel : il compte bien, il se remet à zéro, et il réutilise le style de la ligne RECORD.
 - Comment j'ai vérifié que ça marche : dans la console du navigateur, partie lancée, 3 cristaux cyan + 1 doré attrapés puis fin de partie : l'écran de fin affiche `CRISTAUX 4`. Nouvelle partie : `cristaux` vaut 0. À refaire toi-même en jouant une vraie partie.
 
 ## Défi 2 - Ask
