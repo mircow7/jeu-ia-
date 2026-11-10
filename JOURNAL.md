@@ -29,12 +29,25 @@ Note : la complétion Copilot n'a pas été utilisée. Le travail a été fait a
 - Ma question (prompt exact) :
 
 ```
-(colle-le ici)
+Je suis en Bachelor 1, j'ai fait un peu de Go. Explique jeu.js : comment fonctionnent la boucle du jeu, la chute des objets et la détection de l'objet attrapé ? Une phrase par partie.
 ```
 
-- Une affirmation de la réponse que j'ai vérifiée :
-- Comment je l'ai vérifiée (un changement dans le code, un test dans le jeu) :
-- Résultat : exacte, fausse ou incomplète :
+- Réponse obtenue (Claude) :
+  - Boucle : `boucle()` est rappelée par `requestAnimationFrame` à chaque image, calcule `dt` (temps écoulé, plafonné à 0,033 s), appelle `mettreAJour(dt)` puis `dessiner()`, un peu comme un `for {}` infini en Go qui avance d'un pas de temps.
+  - Chute : chaque objet du tableau `objets` a une `vitesse` en pixels par seconde, et `mettreAJour` fait `objet.y += objet.vitesse * dt` ; `creerObjet()` en ajoute un nouveau quand `chronoSpawn` arrive à zéro.
+  - Détection : `estAttrape(objet)` compare les rectangles de l'objet et du rail ; si c'est vrai, l'objet est retiré du tableau et `toucherObjet` donne les points ou fait perdre une vie si c'est une bombe.
+
+- Deuxième question :
+
+```
+Comment le combo est-il remis à zéro, et que se passe-t-il quand un objet sort par le bas de l'écran ?
+```
+
+  - Réponse : le combo retombe à 0 quand `chronoCombo` (3 s, `dureeCombo`) arrive à zéro sans nouvelle prise, ou quand on perd une vie. Un cristal cyan raté fait perdre une vie, un doré raté affiche seulement « CRISTAL DORÉ PERDU », une bombe ratée ne fait rien.
+
+- Une affirmation de la réponse que j'ai vérifiée : « un cristal cyan qui sort par le bas fait perdre une vie, un doré non ».
+- Comment je l'ai vérifiée : dans la console du navigateur, partie lancée, j'ai placé un cristal cyan sous le bas de l'écran puis appelé `mettreAJour(0.016)` : les vies passent de 3 à 2. Même test avec un doré : les vies restent à 2. Puis `combo = 5; chronoCombo = 0.01;` et `mettreAJour(0.02)` : le combo retombe à 0.
+- Résultat : exacte. À noter : le README est incomplet sur ce point, il dit seulement que la bombe fait perdre une vie, il ne dit pas qu'un cristal cyan raté en coûte une aussi.
 
 ## Défi 3 - Plan
 
