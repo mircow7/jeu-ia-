@@ -122,5 +122,5 @@ jeu.js, mettreAJour : pendant la glace, les objets tombent à 35 % de leur vites
 ## Bilan (3 lignes maximum)
 
 - Ce que l'assistant a fait mieux ou plus vite que moi : écrire tout le code vite et le tester.
-- Ce qu'il a mal fait ou ce que j'ai dû corriger : À COMPLÉTER
-- Ce que je ne lui laisserais pas faire : À COMPLÉTER
+- Ce qu'il a mal fait ou ce que j'ai dû corriger : la couleur de la glace était illisible, le titre débordait, il a dépassé la limite de 600 lignes et les mines étaient trop fréquentes.
+- Ce que je ne lui laisserais pas faire : écrire mon avis à ma place, avoir mon mot de passe GitHub, ou fusionner sans que je relise.
