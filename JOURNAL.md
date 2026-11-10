@@ -54,11 +54,16 @@ Comment le combo est-il remis à zéro, et que se passe-t-il quand un objet sort
 - Mon prompt en mode Plan :
 
 ```
-(colle-le ici)
+Je veux ajouter un cristal de glace, plus rare que le doré. Quand on l'attrape, tous les objets ralentissent pendant 4 secondes, puis reprennent leur vitesse. Respecte les règles de .github/copilot-instructions.md. Propose un plan sans modifier le code.
 ```
 
 - Le plan est dans le fichier `PLAN.md`.
 - Ce que j'ai changé dans le plan avant de le valider (étape retirée, ajoutée, contrainte) et pourquoi :
+  - Retiré l'idée de modifier `objet.vitesse` de chaque objet puis de la remettre : les objets créés pendant l'effet ne seraient pas ralentis puis seraient trop rapides ensuite. Remplacé par un facteur global calculé à chaque image.
+  - Retiré le fond « gelé » : trop de code, la limite de 600 lignes est presque atteinte.
+  - Ajouté la contrainte : durée, force du ralentissement et rareté réglées dans `config.js`.
+  - Ajouté la section « Comment vérifier dans le jeu ».
+  - À COMPLÉTER : relis `PLAN.md` et ajoute ou retire toi-même au moins une chose (c'est ce qui est noté : « PLAN.md modifié par vous »).
 
 ## Défi 4 - Agent
 
