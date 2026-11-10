@@ -1,6 +1,6 @@
 # Cueillette Orbitale
 
-**Jouer en ligne : https://mircow7.github.io/jeu-ia/**
+**Jouer en ligne : https://mircow7.github.io/jeu-ia-/**
 
 Version modifiée du jeu modèle « Pluie de Néon » : thème spatial, cristal de glace qui ralentit tout pendant 4 secondes, bouclier qui absorbe une mine, compteur de cristaux sur l'écran de fin.
 

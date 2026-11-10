@@ -102,10 +102,22 @@ Format : explique en deux phrases ce que tu as changé et dis comment le vérifi
 
 ## Défi 5 - Pull request et revue
 
-- Lien de ma pull request : À COMPLÉTER
-- Commentaire de la revue Copilot que j'ai traité (le texte) : À COMPLÉTER
-- Ma décision (corrigé ou refusé) et pourquoi : À COMPLÉTER
-- Lien de mon jeu publié : https://mircow7.github.io/jeu-ia/
+- Lien de ma pull request : https://github.com/mircow7/jeu-ia-/pull/1
+- Revue Copilot : demandée (niveau « Balanced »), mais refusée par GitHub. Message exact posté sur la PR :
+
+```
+Copilot was unable to review this pull request because the user who requested the review has insufficient remaining quota. Try requesting a review at a lower effort level.
+```
+
+  Crédits Copilot épuisés : comme prévu par le sujet, la revue a été faite à la place par Claude (Claude Code), qui a relu le diff de la PR.
+- Commentaire de revue traité (le texte) :
+
+```
+jeu.js, mettreAJour : pendant la glace, les objets tombent à 35 % de leur vitesse mais chronoSpawn continue de baisser à vitesse normale. Il apparaît donc autant d'objets qu'avant alors qu'ils descendent presque trois fois moins vite : en 4 secondes l'écran se remplit beaucoup plus que d'habitude.
+```
+
+- Ma décision (corrigé ou refusé) et pourquoi : corrigé, nouveau commit sur `defi-agent` : `chronoSpawn -= dt * ralenti;`. Le ralentissement doit calmer le jeu, pas le remplir. Dans le même commit, la couleur de la glace dans `PLAN.md` a été mise à jour (lavande au lieu de bleu clair), pour que le plan corresponde au code.
+- Lien de mon jeu publié : https://mircow7.github.io/jeu-ia-/
 
 ## Bilan (3 lignes maximum)
 

@@ -192,7 +192,7 @@ function mettreAJour(dt) {
   if (chronoGlace > 0) chronoGlace = Math.max(0, chronoGlace - dt);
   const ralenti = chronoGlace > 0 ? REGLAGES.ralentiGlace : 1;
   majPanier(dt);
-  chronoSpawn -= dt;
+  chronoSpawn -= dt * ralenti; // moins d'objets créés pendant la glace
   if (chronoSpawn <= 0) {
     creerObjet();
     chronoSpawn = Math.max(REGLAGES.intervalleMin, REGLAGES.intervalleObjet - (niveau - 1) * 0.075) * hasard(0.8, 1.15);

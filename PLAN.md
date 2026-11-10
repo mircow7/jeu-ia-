@@ -8,7 +8,7 @@ Règles suivies (`.github/copilot-instructions.md`) : pas de classe, pas de modu
 
 1. **`config.js`**
    - Ajouter la constante `const GLACE = "glace";` à côté de `CRISTAL`, `BOMBE`, `DORE`.
-   - Ajouter la couleur `glace: "#9fe8ff"` dans `COULEURS`.
+   - Ajouter la couleur `glace: "#c9b8ff"` (lavande, bien distincte du vert des cristaux) dans `COULEURS`.
    - Ajouter dans `REGLAGES` : `hasardGlace: 0.025` (plus rare que `hasardDore: 0.05`), `dureeGlace: 4` (secondes) et `ralentiGlace: 0.35` (les objets gardent 35 % de leur vitesse).
 
 2. **`jeu.js`, état**
