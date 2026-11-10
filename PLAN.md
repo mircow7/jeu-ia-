@@ -37,6 +37,7 @@ Règles suivies (`.github/copilot-instructions.md`) : pas de classe, pas de modu
 
 8. **`audio.js`**
    - Ajouter `sonGlace()` : une suite de notes aiguës descendantes en `sine`.
+   - Ajouter `sonFinGlace()`, joué quand le ralentissement se termine, pour savoir que la vitesse revient (ajout de ma part).
 
 9. **Vérification**
    - Vérifier que les cinq fichiers JS n'ont pas d'erreur de syntaxe (console du navigateur vide, ou `node --check`).
@@ -46,6 +47,7 @@ Règles suivies (`.github/copilot-instructions.md`) : pas de classe, pas de modu
 - **Étape retirée** : la première version proposait de modifier `objet.vitesse` de chaque objet au moment de la prise (`objet.vitesse *= 0.35`) puis de la remultiplier à la fin. Retirée : un objet créé pendant l'effet ne serait pas ralenti, puis serait accéléré au-delà de sa vitesse normale au moment de la remultiplication. On garde un facteur global calculé à chaque image (étape 5).
 - **Étape retirée** : la première version proposait aussi un fond d'écran « gelé » qui change toute la scène. Retirée : trop de code pour un défi de 40 minutes, alors que la limite de 600 lignes de JavaScript est déjà presque atteinte.
 - **Contrainte ajoutée** : la durée (`dureeGlace`), la force du ralentissement (`ralentiGlace`) et la rareté (`hasardGlace`) sont réglées dans `config.js`, rien en dur dans `jeu.js`.
+- **Étape ajoutée (par moi)** : un son quand le ralentissement se termine, pour savoir que la vitesse revient.
 - **Contrainte ajoutée** : ne pas toucher aux règles existantes (bombe, doré, combo, niveaux).
 
 ## Comment vérifier dans le jeu

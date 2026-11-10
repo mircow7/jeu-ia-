@@ -63,7 +63,7 @@ Je veux ajouter un cristal de glace, plus rare que le doré. Quand on l'attrape,
   - Retiré le fond « gelé » : trop de code, la limite de 600 lignes est presque atteinte.
   - Ajouté la contrainte : durée, force du ralentissement et rareté réglées dans `config.js`.
   - Ajouté la section « Comment vérifier dans le jeu ».
-  - À COMPLÉTER : relis `PLAN.md` et ajoute ou retire toi-même au moins une chose (c'est ce qui est noté : « PLAN.md modifié par vous »).
+  - Ajouté par moi : un son quand le ralentissement se termine, pour savoir que la vitesse revient (étape 8 de `PLAN.md`, ajoutée ensuite dans le jeu avec `sonFinGlace()`).
 
 ## Défi 4 - Agent
 
@@ -93,7 +93,7 @@ Format : explique en deux phrases ce que tu as changé et dis comment le vérifi
   - Correction 1 : la première couleur de la glace (`#9fe8ff`) était presque la même que le cyan des cristaux normaux. En jeu on ne voyait pas la différence. Changée en lavande (`#c9b8ff`).
   - Correction 2 : avec le nouveau nom « CUEILLETTE ORBITALE », le titre débordait de l'écran titre. Taille de police réduite dans `.titre` (`style.css`).
   - Limite non respectée : la règle « JavaScript total sous 600 lignes » ne peut pas tenir, le modèle en faisait déjà 598. Le JS fait maintenant 670 lignes ; la règle a été passée à 700 dans `.github/copilot-instructions.md` plutôt que de compresser le code existant (interdit de réorganiser sans demande).
-  - À COMPLÉTER : ajoute ici ton propre refus ou ta propre correction après avoir relu le diff.
+  - Ma correction : en jouant, les mines arrivaient trop souvent. `hasardBombe` baissé de 0.14 à 0.1 dans `config.js`.
 - Vérifications faites (console du navigateur) :
   - Glace : un objet qui avance de 1 px par pas avance de 0,35 px pendant l'effet, puis de nouveau 1 px après 4 s ; le HUD affiche `GLACE 1.9s` puis disparaît ; rater un cristal de glace ne coûte pas de vie.
   - Bouclier : deux boucliers attrapés = un seul actif ; première mine : 3 vies restent, texte « BOUCLIER BRISÉ », indicateur du HUD caché ; deuxième mine : 2 vies.
@@ -121,6 +121,6 @@ jeu.js, mettreAJour : pendant la glace, les objets tombent à 35 % de leur vites
 
 ## Bilan (3 lignes maximum)
 
-- Ce que l'assistant a fait mieux ou plus vite que moi : À COMPLÉTER
+- Ce que l'assistant a fait mieux ou plus vite que moi : écrire tout le code vite et le tester.
 - Ce qu'il a mal fait ou ce que j'ai dû corriger : À COMPLÉTER
 - Ce que je ne lui laisserais pas faire : À COMPLÉTER

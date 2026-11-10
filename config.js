@@ -32,7 +32,7 @@ const REGLAGES = {
   dureeNiveau: 18,       // secondes avant d'accélérer
   dureeCombo: 3,         // secondes pour enchaîner
   multiplicateurMax: 5,
-  hasardBombe: 0.14,
+  hasardBombe: 0.1,
   hasardDore: 0.05,
   hasardGlace: 0.025,
   hasardBouclier: 0.02,  // chance qu'un objet soit un bouclier   // plus rare que le doré

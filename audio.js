@@ -73,6 +73,9 @@ function sonNiveau() {
 function sonGlace() {
   sonSuite([1760, 1320, 990, 1480], 0.14, "sine", 0.13);
 }
+function sonFinGlace() {
+  sonSuite([660, 880, 1100], 0.09, "triangle", 0.12);
+}
 function sonBouclierBrise() {
   note(900, 0.25, "square", 0.18, -700);
   note(300, 0.4, "triangle", 0.2, -200);

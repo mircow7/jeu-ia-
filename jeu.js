@@ -189,7 +189,10 @@ function mettreAJour(dt) {
     chronoCombo -= dt;
     if (chronoCombo <= 0) { chronoCombo = 0; combo = 0; }
   }
-  if (chronoGlace > 0) chronoGlace = Math.max(0, chronoGlace - dt);
+  if (chronoGlace > 0) {
+    chronoGlace = Math.max(0, chronoGlace - dt);
+    if (chronoGlace === 0) sonFinGlace(); // la vitesse revient
+  }
   const ralenti = chronoGlace > 0 ? REGLAGES.ralentiGlace : 1;
   majPanier(dt);
   chronoSpawn -= dt * ralenti; // moins d'objets créés pendant la glace
