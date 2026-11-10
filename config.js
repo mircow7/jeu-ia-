@@ -1,4 +1,4 @@
-// Réglages de Pluie de Néon.
+// Réglages de Cueillette Orbitale.
 // Modifie ces valeurs pour équilibrer le jeu sans toucher au reste du code.
 
 const LARGEUR = 480; // largeur logique du canvas
@@ -9,16 +9,17 @@ const CRISTAL = "cristal";
 const BOMBE = "bombe";
 const DORE = "dore";
 const GLACE = "glace";
+const BOUCLIER = "bouclier";
 
 const COULEURS = {
   fond: "#05030f",
-  cyan: "#28f0ff",
-  magenta: "#ff3ea5",
+  cyan: "#3dffa8",
+  magenta: "#ff8c42",
   or: "#ffd166",
   rouge: "#ff4d6d",
-  glace: "#9fe8ff",
+  glace: "#c9b8ff",
   blanc: "#f5f7ff",
-  grille: "rgba(40, 240, 255, 0.16)"
+  grille: "rgba(61, 255, 168, 0.16)"
 };
 
 const REGLAGES = {
@@ -33,7 +34,8 @@ const REGLAGES = {
   multiplicateurMax: 5,
   hasardBombe: 0.14,
   hasardDore: 0.05,
-  hasardGlace: 0.025,   // plus rare que le doré
+  hasardGlace: 0.025,
+  hasardBouclier: 0.02,  // chance qu'un objet soit un bouclier   // plus rare que le doré
   dureeGlace: 4,         // secondes de ralentissement
   ralentiGlace: 0.35,    // part de la vitesse gardée pendant la glace
   largeurPanier: 96,
