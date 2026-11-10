@@ -1,6 +1,6 @@
 # Journal de bord
 
-Nom et prénom : À COMPLÉTER
+Nom et prénom : PERRIN Mirco
 Dépôt : https://github.com/mircow7/jeu-ia
 Outil utilisé (Copilot, modèle affiché) : Claude Code (modèle Claude Opus 5.5), utilisé à la place de Copilot comme le prévoit la section « Si l'outil ne répond pas » du sujet
 
