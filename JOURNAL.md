@@ -1,8 +1,8 @@
 # Journal de bord
 
-Nom et prénom : 
-Dépôt : 
-Outil utilisé (Copilot, modèle affiché) : 
+Nom et prénom : À COMPLÉTER
+Dépôt : https://github.com/mircow7/jeu-ia
+Outil utilisé (Copilot, modèle affiché) : Claude Code (modèle Claude Opus 5.5), utilisé à la place de Copilot comme le prévoit la section « Si l'outil ne répond pas » du sujet
 
 Règle : tu colles ici le texte exact de tes prompts (copier-coller, pas de capture). Une entrée par défi. Ce que tu n'as pas gardé compte autant que ce que tu as gardé.
 
