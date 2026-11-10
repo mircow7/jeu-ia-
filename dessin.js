@@ -14,7 +14,7 @@ function dessinerFond(ctx, temps) {
 
   const horizon = HAUTEUR * 0.58;
   const halo = ctx.createRadialGradient(LARGEUR / 2, horizon, 4, LARGEUR / 2, horizon, LARGEUR * 0.8);
-  halo.addColorStop(0, "rgba(255, 62, 165, 0.2)");
+  halo.addColorStop(0, "rgba(255, 140, 66, 0.2)");
   halo.addColorStop(0.5, "rgba(122, 92, 255, 0.07)");
   halo.addColorStop(1, "rgba(0, 0, 0, 0)");
   ctx.fillStyle = halo;
@@ -48,7 +48,7 @@ function dessinerFond(ctx, temps) {
   ctx.save();
   ctx.shadowColor = COULEURS.magenta;
   ctx.shadowBlur = 16;
-  ctx.strokeStyle = "rgba(255, 62, 165, 0.5)";
+  ctx.strokeStyle = "rgba(255, 140, 66, 0.5)";
   ctx.beginPath();
   ctx.moveTo(0, horizon);
   ctx.lineTo(LARGEUR, horizon);
@@ -63,7 +63,7 @@ function dessinerPanier(ctx, panier, temps) {
   ctx.rotate(inclinaison);
   ctx.shadowColor = COULEURS.cyan;
   ctx.shadowBlur = 26;
-  ctx.fillStyle = "rgba(40, 240, 255, 0.16)";
+  ctx.fillStyle = "rgba(61, 255, 168, 0.16)";
   ctx.beginPath();
   ctx.roundRect(-panier.largeur / 2, -panier.hauteur / 2, panier.largeur, panier.hauteur, 8);
   ctx.fill();
@@ -75,15 +75,23 @@ function dessinerPanier(ctx, panier, temps) {
   ctx.shadowBlur = 16 * pulsation;
   ctx.fillStyle = COULEURS.magenta;
   ctx.fillRect(-panier.largeur * 0.17, -2, panier.largeur * 0.34, 4);
-  ctx.fillStyle = "rgba(40, 240, 255, 0.6)";
+  ctx.fillStyle = "rgba(61, 255, 168, 0.6)";
   ctx.fillRect(-panier.largeur * 0.32, panier.hauteur / 2, 10, 3);
   ctx.fillRect(panier.largeur * 0.32 - 10, panier.hauteur / 2, 10, 3);
+  if (bouclier) { // bulle blanche autour du rail tant que le bouclier est actif
+    ctx.shadowColor = COULEURS.blanc;
+    ctx.strokeStyle = "rgba(245, 247, 255, " + (0.4 + 0.3 * pulsation) + ")";
+    ctx.beginPath();
+    ctx.ellipse(0, 0, panier.largeur * 0.65, 22, 0, 0, Math.PI * 2);
+    ctx.stroke();
+  }
   ctx.restore();
 }
 function dessinerCristal(ctx, objet, temps) {
   const r = objet.rayon;
   const dore = objet.type === DORE;
-  const couleur = dore ? COULEURS.or : COULEURS.cyan;
+  const glace = objet.type === GLACE;
+  const couleur = dore ? COULEURS.or : glace ? COULEURS.glace : COULEURS.cyan;
   const battement = 1 + 0.06 * Math.sin(temps * 5 + objet.pulsation);
   ctx.rotate(objet.rotation);
   ctx.scale(battement, battement);
@@ -95,11 +103,14 @@ function dessinerCristal(ctx, objet, temps) {
   ctx.lineTo(0, r);
   ctx.lineTo(-r * 0.62, 0);
   ctx.closePath();
-  ctx.fillStyle = dore ? "rgba(255, 209, 102, 0.22)" : "rgba(40, 240, 255, 0.2)";
+  ctx.fillStyle = dore ? "rgba(255, 209, 102, 0.22)" : glace ? "rgba(201, 184, 255, 0.3)" : "rgba(61, 255, 168, 0.2)";
   ctx.fill();
   ctx.strokeStyle = couleur;
   ctx.lineWidth = 2;
   ctx.stroke();
+  if (glace) { // quatre petits éclats autour du cristal de glace
+    for (let i = 0; i < 4; i++) ctx.fillRect(Math.cos(i * 1.57 + 0.78) * r * 0.95 - 2, Math.sin(i * 1.57 + 0.78) * r * 0.95 - 2, 4, 4);
+  }
   ctx.fillStyle = COULEURS.blanc;
   ctx.beginPath();
   ctx.arc(0, 0, r * 0.28, 0, Math.PI * 2);
@@ -135,10 +146,24 @@ function dessinerBombe(ctx, objet, temps) {
   ctx.arc(-r * 0.12, -r * 0.12, r * 0.1, 0, Math.PI * 2);
   ctx.fill();
 }
+function dessinerBouclier(ctx, objet, temps) {
+  const r = objet.rayon * (1 + 0.08 * Math.sin(temps * 4 + objet.pulsation));
+  ctx.shadowColor = COULEURS.blanc;
+  ctx.shadowBlur = 18;
+  ctx.strokeStyle = COULEURS.blanc;
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  for (let i = 0; i < 6; i++) ctx.lineTo(Math.cos(i * Math.PI / 3) * r, Math.sin(i * Math.PI / 3) * r);
+  ctx.closePath();
+  ctx.fillStyle = "rgba(245, 247, 255, 0.18)";
+  ctx.fill();
+  ctx.stroke();
+}
 function dessinerObjet(ctx, objet, temps) {
   ctx.save();
   ctx.translate(objet.x, objet.y);
   if (objet.type === BOMBE) dessinerBombe(ctx, objet, temps);
+  else if (objet.type === BOUCLIER) dessinerBouclier(ctx, objet, temps);
   else dessinerCristal(ctx, objet, temps);
   ctx.restore();
 }

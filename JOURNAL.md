@@ -70,23 +70,57 @@ Je veux ajouter un cristal de glace, plus rare que le doré. Quand on l'attrape,
 - Mon prompt en mode Agent :
 
 ```
-(colle-le ici)
+Applique PLAN.md.
+```
+
+- Deuxième prompt (objectif, contexte, contraintes, format) :
+
+```
+Objectif : ajoute un bouclier qui absorbe la prochaine bombe, visible dans le HUD, et donne un thème au jeu.
+Contexte : jeu canvas en HTML/CSS/JS sans framework, cinq fichiers JS (config, audio, effets, dessin, jeu). Thème choisi : « Cueillette Orbitale », une station spatiale qui récolte des cristaux d'énergie et évite des mines.
+Contraintes : respecte .github/copilot-instructions.md ; un seul bouclier à la fois ; une bombe sans bouclier enlève toujours une vie ; la rareté du bouclier est réglée dans config.js ; les bombes doivent rester reconnaissables.
+Format : explique en deux phrases ce que tu as changé et dis comment le vérifier dans le navigateur.
 ```
 
 - Fichiers que l'agent a modifiés :
+  - Cristal de glace : `config.js`, `jeu.js`, `dessin.js`, `audio.js`, `index.html`, `style.css`.
+  - Bouclier et thème : les mêmes six fichiers, puis `.github/copilot-instructions.md`.
 - Ce que j'ai relu dans les changements avant d'accepter :
+  - Que la glace ne modifie pas `objet.vitesse` mais applique un facteur `ralenti` dans `mettreAJour` (comme demandé dans PLAN.md).
+  - Que le bouclier est testé AVANT le code de la bombe dans `toucherObjet`, sinon la vie serait perdue quand même.
+  - Que `bouclier` et `chronoGlace` sont bien remis à zéro dans `demarrerPartie`.
 - Ce que j'ai refusé, corrigé ou fait refaire :
-- Mon jeu après l'agent (une phrase) :
+  - Correction 1 : la première couleur de la glace (`#9fe8ff`) était presque la même que le cyan des cristaux normaux. En jeu on ne voyait pas la différence. Changée en lavande (`#c9b8ff`).
+  - Correction 2 : avec le nouveau nom « CUEILLETTE ORBITALE », le titre débordait de l'écran titre. Taille de police réduite dans `.titre` (`style.css`).
+  - Limite non respectée : la règle « JavaScript total sous 600 lignes » ne peut pas tenir, le modèle en faisait déjà 598. Le JS fait maintenant 670 lignes ; la règle a été passée à 700 dans `.github/copilot-instructions.md` plutôt que de compresser le code existant (interdit de réorganiser sans demande).
+  - À COMPLÉTER : ajoute ici ton propre refus ou ta propre correction après avoir relu le diff.
+- Vérifications faites (console du navigateur) :
+  - Glace : un objet qui avance de 1 px par pas avance de 0,35 px pendant l'effet, puis de nouveau 1 px après 4 s ; le HUD affiche `GLACE 1.9s` puis disparaît ; rater un cristal de glace ne coûte pas de vie.
+  - Bouclier : deux boucliers attrapés = un seul actif ; première mine : 3 vies restent, texte « BOUCLIER BRISÉ », indicateur du HUD caché ; deuxième mine : 2 vies.
+  - Répartition sur 20 000 objets tirés : 76 % cristaux, 15 % mines, 5 % dorés, 2,5 % glace, 1,9 % boucliers.
+- Mon jeu après l'agent (une phrase) : « Cueillette Orbitale », on récolte de l'énergie verte avec une station, des cristaux de glace lavande ralentissent tout et un bouclier blanc absorbe une mine.
 
 ## Défi 5 - Pull request et revue
 
-- Lien de ma pull request :
-- Commentaire de la revue Copilot que j'ai traité (le texte) :
-- Ma décision (corrigé ou refusé) et pourquoi :
-- Lien de mon jeu publié :
+- Lien de ma pull request : https://github.com/mircow7/jeu-ia-/pull/1
+- Revue Copilot : demandée (niveau « Balanced »), mais refusée par GitHub. Message exact posté sur la PR :
+
+```
+Copilot was unable to review this pull request because the user who requested the review has insufficient remaining quota. Try requesting a review at a lower effort level.
+```
+
+  Crédits Copilot épuisés : comme prévu par le sujet, la revue a été faite à la place par Claude (Claude Code), qui a relu le diff de la PR.
+- Commentaire de revue traité (le texte) :
+
+```
+jeu.js, mettreAJour : pendant la glace, les objets tombent à 35 % de leur vitesse mais chronoSpawn continue de baisser à vitesse normale. Il apparaît donc autant d'objets qu'avant alors qu'ils descendent presque trois fois moins vite : en 4 secondes l'écran se remplit beaucoup plus que d'habitude.
+```
+
+- Ma décision (corrigé ou refusé) et pourquoi : corrigé, nouveau commit sur `defi-agent` : `chronoSpawn -= dt * ralenti;`. Le ralentissement doit calmer le jeu, pas le remplir. Dans le même commit, la couleur de la glace dans `PLAN.md` a été mise à jour (lavande au lieu de bleu clair), pour que le plan corresponde au code.
+- Lien de mon jeu publié : https://mircow7.github.io/jeu-ia-/
 
 ## Bilan (3 lignes maximum)
 
-- Ce que l'assistant a fait mieux ou plus vite que moi :
-- Ce qu'il a mal fait ou ce que j'ai dû corriger :
-- Ce que je ne lui laisserais pas faire :
+- Ce que l'assistant a fait mieux ou plus vite que moi : À COMPLÉTER
+- Ce qu'il a mal fait ou ce que j'ai dû corriger : À COMPLÉTER
+- Ce que je ne lui laisserais pas faire : À COMPLÉTER

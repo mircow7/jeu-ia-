@@ -9,6 +9,8 @@ Ce fichier est lu automatiquement par Copilot quand il travaille sur ce dépôt.
 - Cinq fichiers JavaScript chargés dans cet ordre : `config.js`, `audio.js`, `effets.js`, `dessin.js`, `jeu.js`.
 - `config.js` contient les réglages. `jeu.js` contient l'état, les entrées, les règles et la boucle.
 - Le jeu doit fonctionner en ouvrant `index.html`, sans serveur, y compris sur GitHub Pages.
+- Thème : « Cueillette Orbitale », une station spatiale récolte des cristaux d'énergie verts, évite les mines rouges ; accents orange, glace lavande, bouclier blanc.
+- Règles du thème : chaque nouvel objet a une couleur bien distincte des autres (jamais proche du vert des cristaux ni du rouge des mines), et tous les textes affichés parlent de récolte, d'énergie ou de station.
 
 ## Règles à respecter
 
@@ -17,7 +19,7 @@ Ce fichier est lu automatiquement par Copilot quand il travaille sur ce dépôt.
 - Les réglages (couleurs, vitesses, vies, raretés) restent dans `config.js`.
 - Pas de fichiers audio ni d'images externes : les sons passent par Web Audio, les dessins par le canvas.
 - Pas d'emoji et pas de tiret long dans les textes affichés.
-- Garde le JavaScript total sous 600 lignes et ne duplique pas une fonction existante.
+- Garde le JavaScript total sous 700 lignes et ne duplique pas une fonction existante.
 - Ne renomme pas et ne réorganise pas le code existant sans que je le demande.
 - Les accès à `localStorage` restent protégés par `try` et `catch`.
 

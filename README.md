@@ -1,4 +1,8 @@
-# Pluie de Néon - jeu modèle
+# Cueillette Orbitale
+
+**Jouer en ligne : https://mircow7.github.io/jeu-ia-/**
+
+Version modifiée du jeu modèle « Pluie de Néon » : thème spatial, cristal de glace qui ralentit tout pendant 4 secondes, bouclier qui absorbe une mine, compteur de cristaux sur l'écran de fin.
 
 Jeu d'arcade web en HTML, CSS et JavaScript pour le cours Outils IA, Bachelor 1, Ynov. Ce dépôt est la base de départ des défis GitHub Copilot : le jeu fonctionne déjà, à toi de l'améliorer.
 
@@ -8,7 +12,10 @@ Déplace le rail néon en bas de l'écran et attrape les cristaux qui tombent. �
 
 - Cristal cyan : 10 points.
 - Cristal doré, plus rare : 50 points.
-- Bombe : tu perds une vie et ton combo retombe à zéro.
+- Cristal de glace lavande, rare : 20 points, tous les objets ralentissent pendant 4 secondes.
+- Bouclier blanc (hexagone), rare : absorbe la prochaine mine. Un seul à la fois.
+- Un cristal vert raté coûte une vie.
+- Bombe (mine) : tu perds une vie et ton combo retombe à zéro.
 - Trois vies au départ.
 - Le combo reste actif 3 secondes. À partir de 3 cristaux, le multiplicateur passe à x2, puis x3, x4 et x5.
 - Toutes les 18 secondes, le niveau augmente : les objets tombent plus vite, arrivent plus souvent et les bombes se multiplient.
@@ -41,7 +48,7 @@ Pour publier sur GitHub Pages : dans le dépôt, **Settings**, **Pages**, **Depl
 | `IDEES_DEFIS.md` | huit extensions à réaliser avec Copilot |
 | `.github/copilot-instructions.md` | consignes lues par Copilot sur ce dépôt |
 
-Le JavaScript fait moins de 600 lignes au total. Il est découpé en fichiers courts, sans classe ni framework, avec des commentaires en français.
+Le JavaScript fait moins de 700 lignes au total. Il est découpé en fichiers courts, sans classe ni framework, avec des commentaires en français.
 
 ## Personnaliser
 

@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#05030f">
-  <title>Pluie de Néon</title>
+  <title>Cueillette Orbitale</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="page">
     <header class="barre">
-      <span class="barre-nom">PLUIE DE NÉON</span>
+      <span class="barre-nom">CUEILLETTE ORBITALE</span>
       <button id="bouton-son" class="bouton-son" type="button" aria-pressed="true">SON ACTIF</button>
     </header>
 
@@ -22,6 +22,7 @@
           <span class="etiquette">SCORE</span>
           <strong id="score" class="score">0</strong>
           <span id="niveau" class="niveau">NIVEAU 1</span>
+          <span id="glace" class="niveau glace cache">GLACE</span>
         </div>
         <div id="combo" class="combo">
           <span id="combo-valeur">x1</span>
@@ -32,13 +33,14 @@
           <div class="vies" id="vies" aria-label="Vies restantes">
             <i></i><i></i><i></i>
           </div>
+          <span id="bouclier" class="niveau bouclier cache">BOUCLIER</span>
         </div>
       </div>
 
       <div id="ecran-titre" class="ecran">
-        <p class="sur-titre">JEU MODÈLE / BACHELOR 1</p>
-        <h1 class="titre">PLUIE<br>DE NÉON</h1>
-        <p class="but">Attrape les cristaux.<br>Évite les bombes.</p>
+        <p class="sur-titre">STATION ORBITALE / BACHELOR 1</p>
+        <h1 class="titre">CUEILLETTE<br>ORBITALE</h1>
+        <p class="but">Récolte les cristaux d'énergie.<br>Évite les mines. Le bouclier blanc te protège.</p>
         <button id="bouton-jouer" class="bouton-principal" type="button">JOUER</button>
         <p class="record-titre">RECORD <strong id="record-titre">0</strong></p>
         <p class="commandes">Flèches ou A et D<br>Souris ou doigt</p>
@@ -64,7 +66,7 @@
     </section>
 
     <footer class="pied">
-      <span>Attrape les cristaux, évite les bombes, enchaîne pour multiplier les points.</span>
+      <span>Récolte l'énergie, évite les mines, enchaîne pour multiplier les points.</span>
     </footer>
   </main>
   <script src="config.js"></script>
