@@ -83,7 +83,8 @@ function dessinerPanier(ctx, panier, temps) {
 function dessinerCristal(ctx, objet, temps) {
   const r = objet.rayon;
   const dore = objet.type === DORE;
-  const couleur = dore ? COULEURS.or : COULEURS.cyan;
+  const glace = objet.type === GLACE;
+  const couleur = dore ? COULEURS.or : glace ? COULEURS.glace : COULEURS.cyan;
   const battement = 1 + 0.06 * Math.sin(temps * 5 + objet.pulsation);
   ctx.rotate(objet.rotation);
   ctx.scale(battement, battement);
@@ -95,11 +96,14 @@ function dessinerCristal(ctx, objet, temps) {
   ctx.lineTo(0, r);
   ctx.lineTo(-r * 0.62, 0);
   ctx.closePath();
-  ctx.fillStyle = dore ? "rgba(255, 209, 102, 0.22)" : "rgba(40, 240, 255, 0.2)";
+  ctx.fillStyle = dore ? "rgba(255, 209, 102, 0.22)" : glace ? "rgba(159, 232, 255, 0.3)" : "rgba(40, 240, 255, 0.2)";
   ctx.fill();
   ctx.strokeStyle = couleur;
   ctx.lineWidth = 2;
   ctx.stroke();
+  if (glace) { // quatre petits éclats autour du cristal de glace
+    for (let i = 0; i < 4; i++) ctx.fillRect(Math.cos(i * 1.57 + 0.78) * r * 0.95 - 2, Math.sin(i * 1.57 + 0.78) * r * 0.95 - 2, 4, 4);
+  }
   ctx.fillStyle = COULEURS.blanc;
   ctx.beginPath();
   ctx.arc(0, 0, r * 0.28, 0, Math.PI * 2);

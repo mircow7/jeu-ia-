@@ -379,6 +379,11 @@ canvas {
   animation: battement 1.4s ease-in-out infinite;
 }
 
+.niveau.glace {
+  color: #9fe8ff;
+}
+
+.niveau.cache,
 .badge.cache {
   display: none;
 }

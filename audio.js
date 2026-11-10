@@ -70,6 +70,9 @@ function sonPerte() {
 function sonNiveau() {
   sonSuite([520, 660, 880], 0.11, "square", 0.09);
 }
+function sonGlace() {
+  sonSuite([1760, 1320, 990, 1480], 0.14, "sine", 0.13);
+}
 function sonClic() {
   note(680, 0.05, "square", 0.07, 120);
 }
